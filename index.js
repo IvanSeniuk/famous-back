@@ -1,0 +1,40 @@
+require("dotenv").config();
+const express = require("express");
+const sequelize = require("./db");
+const models = require("./models/models");
+const cors = require("cors");
+const fileUpload = require("express-fileupload");
+const router = require("./routes/index");
+const errorHandler = require("./middlewere/ErrorHandlingMiddlewere");
+const path = require("path");
+
+const PORT = process.env.PORT || 8000;
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+app.use(express.static(path.resolve(__dirname, "static")));
+app.use(fileUpload({}));
+app.use("/api", router);
+
+//Обробка помилок
+app.use(errorHandler);
+
+const start = async () => {
+	try {
+		await sequelize.authenticate();
+		await sequelize.sync();
+		app.listen(PORT, () => {
+			console.log(`Server is started on port ${PORT}`);
+		});
+	} catch (e) {
+		console.log(e);
+	}
+};
+
+start();
+//App.get("/products", (req, res) => {
+//	const { id } = req.params;
+//	const product = products.find((el) => el.id === +id);
+//	res.json(products);
+//});

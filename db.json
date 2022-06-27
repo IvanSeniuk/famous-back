@@ -1,0 +1,6 @@
+{
+	"id": 5,
+	"composition": "{\"category\":\"chesee\",\"config\":{\"size\":[22,30,40],\"sides\":[\"Стандарт\",\"Філадельфія\",\"Хот-дог\"],\"sizePrice\":[0,28,60],\"sidePrice\":[0,31,34],\"sizeWeight\":[0.5,0.7,0.8],\"sideWeight\":[0.5,0.65,0.7]},\"weight\":489,\"img\":\"https://cdn.dodostatic.net/static/Img/Products/Pizza/ru-RU/c2da53ec-00e2-4446-a4e6-74b83ed0b357.jpg\",\"name\":\"Сырная\",\"composition\":[\"увеличенная порция моцареллы\",\"томатный соус\"],\"additions\":[{\"title\":\"Сир моцарелла\",\"weight\":30,\"price\":15,\"count\":1,\"check\":false},{\"title\":\"Гриби\",\"weight\":40,\"price\":17,\"count\":1,\"check\":false},{\"title\":\"Салямі\",\"weight\":58,\"price\":19,\"count\":1,\"check\":false},{\"title\":\"Соус барбекю\",\"weight\":45,\"price\":10,\"count\":1,\"check\":false},{\"title\":\"Помідор\",\"weight\":50,\"price\":9,\"count\":1,\"check\":false}],\"defaultPrice\":245,\"productType\":\"pizza\",\"price\":245}",
+	"updatedAt": "2022-06-22T14:49:11.904Z",
+	"createdAt": "2022-06-22T14:49:11.904Z"
+}
