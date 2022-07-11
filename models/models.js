@@ -9,6 +9,7 @@ const User = sequelize.define("user", {
 		unique: true,
 		validate: { isEmail: true, min: 3 },
 	},
+	phone: { type: DataTypes.STRING, defaultValue: "" },
 	password: { type: DataTypes.STRING, validate: { min: 4 } },
 	role: {
 		type: DataTypes.STRING,
@@ -27,11 +28,15 @@ const BasketProduct = sequelize.define("basket_product", {
 const Product = sequelize.define("product", {
 	id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
 	name: { type: DataTypes.STRING, allowNull: false },
-	price: { type: DataTypes.INTEGER, allowNull: false },
-	weight: { type: DataTypes.INTEGER, allowNull: false },
-	//img: { type: DataTypes.STRING, allowNull: false },
-	productCategory: { type: DataTypes.STRING, allowNull: false },
-	productType: { type: DataTypes.STRING, allowNull: false },
+	price: { type: DataTypes.INTEGER, allowNull: false, defaultValue: 0 },
+	weight: { type: DataTypes.INTEGER, allowNull: false, defaultValue: 0 },
+	img: { type: DataTypes.STRING, allowNull: false, defaultValue: "" },
+	productCategory: {
+		type: DataTypes.STRING,
+		allowNull: false,
+		defaultValue: "",
+	},
+	productType: { type: DataTypes.STRING, allowNull: false, defaultValue: "" },
 	composition: {
 		type: DataTypes.ARRAY(DataTypes.STRING),
 		allowNull: false,
@@ -53,7 +58,7 @@ const ProductP = sequelize.define("productP", {
 	name: { type: DataTypes.STRING, allowNull: false },
 	price: { type: DataTypes.INTEGER, allowNull: false, defaultValue: 0 },
 	weight: { type: DataTypes.INTEGER, allowNull: false, defaultValue: 0 },
-	//img: { type: DataTypes.STRING, allowNull: false },
+	img: { type: DataTypes.STRING, allowNull: false, defaultValue: "" },
 	productCategory: {
 		type: DataTypes.STRING,
 		allowNull: false,
@@ -85,6 +90,55 @@ const Category = sequelize.define("category", {
 	name: { type: DataTypes.STRING, unique: true, allowNull: false },
 });
 
+const About = sequelize.define("about", {
+	id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+	title: { type: DataTypes.TEXT, allowNull: false, defaultValue: "" },
+	subtitle: { type: DataTypes.TEXT, allowNull: false, defaultValue: "" },
+	text1: { type: DataTypes.TEXT, allowNull: false, defaultValue: "" },
+	text2: { type: DataTypes.TEXT, allowNull: false, defaultValue: "" },
+	img1: { type: DataTypes.STRING, allowNull: false, defaultValue: "" },
+	img2: { type: DataTypes.STRING, allowNull: false, defaultValue: "" },
+	img3: { type: DataTypes.STRING, allowNull: false, defaultValue: "" },
+});
+const Contacts = sequelize.define("contacts", {
+	id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+	phone1: { type: DataTypes.STRING, allowNull: false, defaultValue: "" },
+	phone2: { type: DataTypes.STRING, allowNull: false, defaultValue: "" },
+	facebook: { type: DataTypes.STRING, allowNull: false, defaultValue: "" },
+	map: { type: DataTypes.STRING, allowNull: false, defaultValue: "" },
+	adress: {
+		type: DataTypes.ARRAY(DataTypes.JSON),
+		allowNull: false,
+		defaultValue: [],
+	},
+	email: { type: DataTypes.STRING, allowNull: false, defaultValue: "" },
+	img: { type: DataTypes.STRING, allowNull: false, defaultValue: "" },
+	text_delivery: {
+		type: DataTypes.STRING,
+		allowNull: false,
+		defaultValue: "",
+	},
+});
+const Actions = sequelize.define("actions", {
+	id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+	title: { type: DataTypes.STRING, allowNull: false, defaultValue: "" },
+	img: { type: DataTypes.STRING, allowNull: false, defaultValue: "" },
+	text: { type: DataTypes.TEXT, allowNull: false, defaultValue: "" },
+});
+const Promocodes = sequelize.define("promocodes", {
+	id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+	title: { type: DataTypes.STRING, allowNull: false, defaultValue: "" },
+	promo: { type: DataTypes.STRING, allowNull: false, defaultValue: "" },
+	count: { type: DataTypes.INTEGER, allowNull: false, defaultValue: 0 },
+});
+
+const Banner = sequelize.define("banner", {
+	id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+	title: { type: DataTypes.STRING, allowNull: false, defaultValue: "" },
+	img: { type: DataTypes.STRING, allowNull: false, defaultValue: "" },
+	link: { type: DataTypes.STRING, allowNull: false, defaultValue: "" },
+});
+
 User.hasOne(Basket);
 Basket.belongsTo(User);
 
@@ -111,4 +165,9 @@ module.exports = {
 	Type,
 	ProductP,
 	Category,
+	About,
+	Contacts,
+	Actions,
+	Promocodes,
+	Banner,
 };

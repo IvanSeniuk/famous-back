@@ -92,11 +92,9 @@ class ProductPController {
 	}
 	async delete(req, res) {
 		const { id } = req.params;
-
 		if (!id) {
 			return res.status(404).send("Продукт не знайдено...");
 		}
-
 		try {
 			await ProductP.destroy({
 				where: {
