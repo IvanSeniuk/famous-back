@@ -10,14 +10,11 @@ const { Sequelize } = require("sequelize");
 //		port: process.env.DB_PORT,
 //	}
 //);
-module.exports = new Sequelize(
-	"postgres://postgres:postgres@localhost/famous_db",
-	{
-		dialect: "postgres",
-		//host: process.env.DB_HOST,
-		//port: process.env.DB_PORT,
-	}
-);
+module.exports = new Sequelize("postgres://postgres:root@localhost/famous_db", {
+	dialect: "postgres",
+	//host: process.env.DB_HOST,
+	//port: process.env.DB_PORT,
+});
 
 //function customLogger(queryString, queryObject) {
 //	console.log(queryString); // outputs a string
