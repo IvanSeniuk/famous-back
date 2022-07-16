@@ -1,15 +1,19 @@
 const { Sequelize } = require("sequelize");
 
+//module.exports = new Sequelize(
+//	process.env.DB_NAME,
+//	process.env.DB_USER,
+//	process.env.DB_PASSWORD,
+//	{
+//		dialect: "postgres",
+//		host: process.env.DB_HOST,
+//		port: process.env.DB_PORT,
+//	}
+//);
 module.exports = new Sequelize(
-	process.env.DB_NAME,
-	process.env.DB_USER,
-	process.env.DB_PASSWORD,
-	{
-		dialect: "postgres",
-		host: process.env.DB_HOST,
-		port: process.env.DB_PORT,
-	}
+	"postgres://postgres:root@example.com:5432/famous_db"
 );
+//Sequelize('postgres://user:pass@185.174.172.92:5432/dbname');
 //module.exports = new Sequelize("famous_db", "postgres", "root", {
 //	dialect: "postgres",
 //	host: "localhost",
