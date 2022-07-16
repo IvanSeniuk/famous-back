@@ -105,7 +105,9 @@ const Contacts = sequelize.define("contacts", {
 	phone1: { type: DataTypes.STRING, allowNull: false, defaultValue: "" },
 	phone2: { type: DataTypes.STRING, allowNull: false, defaultValue: "" },
 	facebook: { type: DataTypes.STRING, allowNull: false, defaultValue: "" },
+	instagram: { type: DataTypes.STRING, allowNull: false, defaultValue: "" },
 	map: { type: DataTypes.STRING, allowNull: false, defaultValue: "" },
+	hours: { type: DataTypes.STRING, allowNull: false, defaultValue: "" },
 	adress: {
 		type: DataTypes.ARRAY(DataTypes.JSON),
 		allowNull: false,
@@ -114,7 +116,7 @@ const Contacts = sequelize.define("contacts", {
 	email: { type: DataTypes.STRING, allowNull: false, defaultValue: "" },
 	img: { type: DataTypes.STRING, allowNull: false, defaultValue: "" },
 	text_delivery: {
-		type: DataTypes.STRING,
+		type: DataTypes.TEXT,
 		allowNull: false,
 		defaultValue: "",
 	},
@@ -128,7 +130,7 @@ const Actions = sequelize.define("actions", {
 const Promocodes = sequelize.define("promocodes", {
 	id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
 	title: { type: DataTypes.STRING, allowNull: false, defaultValue: "" },
-	promo: { type: DataTypes.STRING, allowNull: false, defaultValue: "" },
+	promo: { type: DataTypes.INTEGER, allowNull: false, defaultValue: 0 },
 	count: { type: DataTypes.INTEGER, allowNull: false, defaultValue: 0 },
 });
 

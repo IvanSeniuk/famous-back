@@ -8,6 +8,11 @@ const categoryRouter = require("./categoryRouter");
 const aboutRouter = require("./aboutRouter");
 const bannerRouter = require("./bannerRouter");
 const actionsRouter = require("./actionsRouter");
+const productPosterRouter = require("./productPosterRouter");
+const orderPosterRouter = require("./orderPosterRouter");
+const categoryPosterRouter = require("./categoryPosterRouter");
+const contactsRouter = require("./contactsRouter");
+const promocodeRouter = require("./promocodeRouter");
 
 router.use("/user", userRouter);
 router.use("/type", typeRouter);
@@ -17,5 +22,10 @@ router.use("/product_p", productPRouter);
 router.use("/about", aboutRouter);
 router.use("/banner", bannerRouter);
 router.use("/actions", actionsRouter);
+router.use("/contacts", contactsRouter);
+router.use("/product_poster", productPosterRouter);
+router.use("/order", orderPosterRouter);
+router.use("/category_poster", categoryPosterRouter);
+router.use("/promocode", promocodeRouter);
 
 module.exports = router;
