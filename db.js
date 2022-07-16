@@ -10,11 +10,21 @@ const { Sequelize } = require("sequelize");
 //		port: process.env.DB_PORT,
 //	}
 //);
-module.exports = new Sequelize("postgres://postgres:root@localhost/famous_db", {
+module.exports = new Sequelize("famous_db", "postgres", "root", {
 	dialect: "postgres",
-	//host: process.env.DB_HOST,
-	//port: process.env.DB_PORT,
+	host: "localhost",
+	port: 5432,
 });
+//DB_NAME=
+//DB_USER=postgres
+//DB_PASSWORD=root
+//DB_HOST=localhost
+//DB_PORT=5432
+//module.exports = new Sequelize("postgres://postgres:root@localhost/famous_db", {
+//	dialect: "postgres",
+//	//host: process.env.DB_HOST,
+//	//port: process.env.DB_PORT,
+//});
 
 //function customLogger(queryString, queryObject) {
 //	console.log(queryString); // outputs a string
