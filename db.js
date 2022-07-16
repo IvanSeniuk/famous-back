@@ -11,7 +11,7 @@ const { Sequelize } = require("sequelize");
 //	}
 //);
 module.exports = new Sequelize(
-	"postgres://postgres:root@example.com:5432/famous_db"
+	"postgres://postgres:root@185.174.172.92:5432/famous_db"
 );
 //Sequelize('postgres://user:pass@185.174.172.92:5432/dbname');
 //module.exports = new Sequelize("famous_db", "postgres", "root", {
