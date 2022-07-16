@@ -8,11 +8,9 @@ module.exports = new Sequelize(
 		dialect: "postgres",
 		host: process.env.DB_HOST,
 		port: process.env.DB_PORT,
-		//logQueryParameters: true,
-		//logging: customLogger,
-		//omitNull: true,
 	}
 );
+
 //function customLogger(queryString, queryObject) {
 //	console.log(queryString); // outputs a string
 //	console.log(queryObject.bind); // outputs an array
