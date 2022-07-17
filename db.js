@@ -10,9 +10,11 @@ const { Sequelize } = require("sequelize");
 //		port: process.env.DB_PORT,
 //	}
 //);
+
 module.exports = new Sequelize(
 	"postgres://postgres:root@localhost:5432/famous_db"
 );
+
 //Sequelize('postgres://user:pass@185.174.172.92:5432/dbname');
 //module.exports = new Sequelize("famous_db", "postgres", "root", {
 //	dialect: "postgres",
