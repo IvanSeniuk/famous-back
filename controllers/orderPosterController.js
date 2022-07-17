@@ -5,36 +5,6 @@
 const axios = require("../axios/axiosPoster");
 
 class OrderPosterController {
-	//async create(req, res, next) {
-	//	try {
-	//		const {
-	//			name,
-	//			composition,
-	//			additions,
-	//			config,
-	//			price,
-	//			weight,
-	//			productCategory,
-	//			productType,
-	//		} = req.body;
-	//		//const { img } = req.files;
-	//		//let fileName = uuid.v4() + ".jpg";
-	//		//img.mv(path.resolve(__dirname, "..", "static", fileName));
-	//		const product = await ProductP.create({
-	//			name,
-	//			weight,
-	//			composition,
-	//			additions,
-	//			config,
-	//			productCategory,
-	//			productType,
-	//			price,
-	//		});
-	//		return res.json(product);
-	//	} catch (err) {
-	//		next(ApiError.badRequest(e.message));
-	//	}
-	//}
 	async create(req, res) {
 		const { data } = await axios.post(
 			`/incomingOrders.createIncomingOrder?token=${process.env.TOKEN_POSTER}`,
@@ -50,13 +20,13 @@ class OrderPosterController {
 		return res.json(data);
 	}
 
-	//async getOne(req, res) {
-	//	const { id } = req.params;
-	//	const { data } = await axios.get(
-	//		`/menu.getProduct?token=${process.env.TOKEN_POSTER}&product_id=${id}`
-	//	);
-	//	return res.json(data);
-	//}
+	async getOne(req, res) {
+		const { id } = req.params;
+		const { data } = await axios.get(
+			`/incomingOrders.getIncomingOrder?token=${process.env.TOKEN_POSTER}&incoming_order_id=${id}`
+		);
+		return res.json(data);
+	}
 	//async update(req, res) {
 	//	try {
 	//		const { id } = req.params;
