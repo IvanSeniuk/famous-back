@@ -28,6 +28,6 @@ router.use("/product_poster", productPosterRouter);
 router.use("/order", orderPosterRouter);
 router.use("/category_poster", categoryPosterRouter);
 router.use("/promocode", promocodeRouter);
-router.use("/user_poster", promocodeRouter);
+router.use("/user_poster", userPosterRouter);
 
 module.exports = router;
