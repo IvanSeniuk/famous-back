@@ -89,7 +89,13 @@ const Category = sequelize.define("category", {
 	id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
 	name: { type: DataTypes.STRING, unique: true, allowNull: false },
 });
-
+const Subscription = sequelize.define("subscription", {
+	id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+	email: {
+		type: DataTypes.STRING,
+		validate: { isEmail: true, min: 3 },
+	},
+});
 const About = sequelize.define("about", {
 	id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
 	title: { type: DataTypes.TEXT, allowNull: false, defaultValue: "" },
@@ -172,4 +178,5 @@ module.exports = {
 	Actions,
 	Promocodes,
 	Banner,
+	Subscription,
 };
