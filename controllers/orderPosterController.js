@@ -14,16 +14,9 @@ class OrderPosterController {
 		return res.json(data);
 	}
 	async getAll(req, res) {
-		const { status } = req.params;
-		if (status) {
-			const { data } = await axios.get(
-				`/incomingOrders.getIncomingOrders?token=${process.env.TOKEN_POSTER}&status=${status}`
-			);
-		} else {
-			const { data } = await axios.get(
-				`/incomingOrders.getIncomingOrders?token=${process.env.TOKEN_POSTER}`
-			);
-		}
+		const { data } = await axios.get(
+			`/incomingOrders.getIncomingOrders?token=${process.env.TOKEN_POSTER}`
+		);
 
 		return res.json(data);
 	}
