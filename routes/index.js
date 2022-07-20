@@ -14,6 +14,7 @@ const categoryPosterRouter = require("./categoryPosterRouter");
 const contactsRouter = require("./contactsRouter");
 const promocodeRouter = require("./promocodeRouter");
 const userPosterRouter = require("./userPosterRouter");
+const subscriptionRouter = require("./subscriptionRouter");
 
 router.use("/user", userRouter);
 router.use("/type", typeRouter);
@@ -29,5 +30,6 @@ router.use("/order", orderPosterRouter);
 router.use("/category_poster", categoryPosterRouter);
 router.use("/promocode", promocodeRouter);
 router.use("/user_poster", userPosterRouter);
+router.use("/subscription", subscriptionRouter);
 
 module.exports = router;
