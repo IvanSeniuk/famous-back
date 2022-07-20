@@ -146,6 +146,11 @@ const Banner = sequelize.define("banner", {
 	img: { type: DataTypes.STRING, allowNull: false, defaultValue: "" },
 	link: { type: DataTypes.STRING, allowNull: false, defaultValue: "" },
 });
+const CreditCard = sequelize.define("credit_card", {
+	id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+	number: { type: DataTypes.STRING, allowNull: false, defaultValue: "" },
+	img: { type: DataTypes.STRING, allowNull: false, defaultValue: "" },
+});
 
 User.hasOne(Basket);
 Basket.belongsTo(User);
@@ -179,4 +184,5 @@ module.exports = {
 	Promocodes,
 	Banner,
 	Subscription,
+	CreditCard,
 };
