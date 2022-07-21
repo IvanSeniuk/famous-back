@@ -16,15 +16,12 @@ const User = sequelize.define("user", {
 		defaultValue: "USER",
 	},
 });
-
 const Basket = sequelize.define("basket", {
 	id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
 });
-
 const BasketProduct = sequelize.define("basket_product", {
 	id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
 });
-
 const Product = sequelize.define("product", {
 	id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
 	name: { type: DataTypes.STRING, allowNull: false },
@@ -151,6 +148,14 @@ const CreditCard = sequelize.define("credit_card", {
 	number: { type: DataTypes.STRING, allowNull: false, defaultValue: "" },
 	img: { type: DataTypes.STRING, allowNull: false, defaultValue: "" },
 });
+const Metatags = sequelize.define("metatags", {
+	id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+	metatags: {
+		type: DataTypes.TEXT,
+		allowNull: false,
+		defaultValue: "",
+	},
+});
 
 User.hasOne(Basket);
 Basket.belongsTo(User);
@@ -185,4 +190,5 @@ module.exports = {
 	Banner,
 	Subscription,
 	CreditCard,
+	Metatags,
 };

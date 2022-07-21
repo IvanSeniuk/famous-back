@@ -35,7 +35,6 @@ class ActionsController {
 			const { title, text } = req.body;
 			const findActions = await Actions.findOne({ where: { id } });
 			if (req.body) {
-				console.log(555);
 				if (title) {
 					findActions.title = title;
 				}
@@ -47,7 +46,7 @@ class ActionsController {
 				const { img } = req.files;
 				let fileName = uuid.v4() + ".jpg";
 				if (img) {
-					img.mv(path.resolve(__dirname, "..", "static", fileName1));
+					img.mv(path.resolve(__dirname, "..", "static", fileName));
 				}
 				if (img) {
 					findActions.img = fileName;

@@ -16,6 +16,8 @@ const promocodeRouter = require("./promocodeRouter");
 const userPosterRouter = require("./userPosterRouter");
 const subscriptionRouter = require("./subscriptionRouter");
 const creditCardsRouter = require("./creditCardsRouter");
+const restaurantsRouter = require("./restaurantsRouter");
+const metatagsRouter = require("./metatagsRouter");
 
 router.use("/user", userRouter);
 router.use("/type", typeRouter);
@@ -33,5 +35,7 @@ router.use("/promocode", promocodeRouter);
 router.use("/user_poster", userPosterRouter);
 router.use("/subscription", subscriptionRouter);
 router.use("/credit_cards", creditCardsRouter);
+router.use("/restaurants", restaurantsRouter);
+router.use("/metatags", metatagsRouter);
 
 module.exports = router;
