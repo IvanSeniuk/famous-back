@@ -44,10 +44,6 @@ class ContactsController {
 	}
 	async update(req, res) {
 		try {
-			console.log(req.body);
-			//if (req.files === null || undefined) {
-			//	console.log(9999);
-			//}
 			const { id } = req.params;
 			const {
 				phone1,
@@ -62,7 +58,6 @@ class ContactsController {
 			} = req.body;
 			const findContacts = await Contacts.findOne({ where: { id } });
 			if (req.body) {
-				console.log(555);
 				if (phone1) {
 					findContacts.phone1 = phone1;
 				}
@@ -108,6 +103,7 @@ class ContactsController {
 				return res.status(400).send("Даних не знайдено");
 			}
 			const contacts = await findContacts.save();
+
 			if (!contacts) {
 				res.status(400).send("Помилка оновлення інформації ");
 			}

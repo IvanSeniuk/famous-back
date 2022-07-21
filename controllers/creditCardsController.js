@@ -5,14 +5,19 @@ const { CreditCard } = require("../models/models");
 class CreditCardController {
 	async create(req, res) {
 		const { number } = req.body;
-		const { img } = req.files;
-		let fileName = uuid.v4() + ".jpg";
-		img.mv(path.resolve(__dirname, "..", "static", fileName));
+		let fileName = "";
+		if (req.files) {
+			const { img } = req.files;
+			fileName = uuid.v4() + ".jpg";
+			img.mv(path.resolve(__dirname, "..", "static", fileName));
+		}
+
 		try {
 			const creditCards = await CreditCard.create({
 				number,
 				img: fileName,
 			});
+
 			return res.json(creditCards);
 		} catch (err) {
 			console.log(err);
@@ -24,33 +29,31 @@ class CreditCardController {
 	}
 	async update(req, res) {
 		try {
-			console.log(req.body);
 			const { id } = req.params;
 			const { number } = req.body;
 			const findCreditCard = await CreditCard.findOne({ where: { id } });
-			if (req.body) {
-				if (number) {
-					findCreditCard.title = title;
-				}
+			//console.log(req.body);
+			if (req.body.number) {
+				findCreditCard.number = number;
+				const creditcard = await findCreditCard.save();
+				return res.json(creditcard);
 			}
-			if (req.files) {
+
+			if (req.files.img) {
 				const { img } = req.files;
 				let fileName = uuid.v4() + ".jpg";
-				if (img) {
-					img.mv(path.resolve(__dirname, "..", "static", fileName1));
-				}
-				if (img) {
-					findCreditCard.img = fileName;
-				}
+				img.mv(path.resolve(__dirname, "..", "static", fileName));
+				findCreditCard.img = fileName;
 			}
+
 			if (!findCreditCard) {
-				return res.status(400).send("Банер з таким id не знайдено");
+				return res.status(400).send("Карту з таким id не знайдено");
 			}
-			const creditCard = await findCreditCard.save();
-			if (!creditCard) {
+			const creditcard = await findCreditCard.save();
+			if (!creditcard) {
 				res.status(400).send("Помилка оновлення інформації ");
 			}
-			return res.json(creditCard);
+			return res.json(creditcard);
 		} catch (err) {
 			return res.status(400).send("Помилка оновлення інформації.");
 		}
